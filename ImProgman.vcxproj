@@ -75,6 +75,10 @@
     <ExternalIncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Users\Relative\source\repos\ImProgman\imgui\backends;C:\Users\Relative\source\repos\ImProgman\imgui;</ExternalIncludePath>
     <SourcePath>C:\Users\Relative\source\repos\ImProgman\src;C:\Users\Relative\source\repos\ImProgman\imgui\backends;C:\Users\Relative\source\repos\ImProgman\imgui;$(SourcePath)</SourcePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <SourcePath>C:\Users\Relative\source\repos\ImProgman\imgui\backends;C:\Users\Relative\source\repos\ImProgman\imgui;C:\Users\Relative\source\repos\ImProgman\src;$(SourcePath)</SourcePath>
+    <ExternalIncludePath>C:\Users\Relative\source\repos\ImProgman\imgui\backends;C:\Users\Relative\source\repos\ImProgman\imgui;C:\Users\Relative\source\repos\ImProgman\src;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -108,9 +112,10 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -123,10 +128,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(CoreLibraryDependencies);opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

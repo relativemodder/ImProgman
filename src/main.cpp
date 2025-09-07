@@ -175,6 +175,10 @@ int main(int, char**)
 
 }
 
+int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+{
+	return main(0, nullptr);
+}
 
 bool CreateDeviceWGL(HWND hWnd, WGL_WindowData* data)
 {
